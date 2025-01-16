@@ -23,7 +23,6 @@ export class TSignupPage implements OnInit {
       reader.readAsDataURL(file);
     }
   }
-  
 
   constructor() { }
 
