@@ -1,13 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>landing-page</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">landing-page</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="landing-page">
+  <img src="assets/logo.png" alt="QuickMark Logo" class="logo">
+  <div class="Title">
+    <h1>
+      <span class="quick">Quick</span>
+      <span class="mark">Mark</span>
+    </h1>
+    <p>Fast. Accurate. Reliable</p>
+  </div>
+  <div class="Buttons">
+    <ion-button routerLink="/t-signin">
+      <ion-icon name="school-outline" slot="start"></ion-icon>
+      Teacher
+    </ion-button>
+    <ion-button routerLink="/s-signin">
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      Student
+    </ion-button>
+  </div>
 </ion-content>
