@@ -130,7 +130,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .class-item {
     display: flex;
     justify-content: space-between;
@@ -145,7 +145,30 @@
   
   ion-icon {
     font-size: 24px;
-    color: #d8884a;
     cursor: pointer;
   }
+
+  .pencil {
+    margin-right: 10px;
+    color: #28a56b;
+  }
+
+  .trash {
+    color: #a53f28;
+  }
+}
+
+::ng-deep .custom-cancel-button {
+  color: #2885a5 !important;               
+  border-radius: 5px;                    
+}
+
+::ng-deep .custom-save-button{
+  color: #d8884a !important;               
+  border-radius: 5px;                    
+}
+
+::ng-deep .custom-delete-button{
+  color: #d8884a !important;               
+  border-radius: 5px;                    
 }
