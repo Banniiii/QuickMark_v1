@@ -38,7 +38,8 @@ export class THomePage {
   }
 
   // Edit the selected class
-  async editClass(classItem: { name: string }) {
+  async editClass(event: Event, classItem: { name: string }) {
+    event.stopPropagation();
     const alert = await this.alertController.create({
       header: 'Edit Class',
       inputs: [
@@ -73,7 +74,8 @@ export class THomePage {
   }
 
   // Delete the selected class
-  async deleteClass(classItem: { name: string }) {
+  async deleteClass(event: Event, classItem: { name: string }) {
+    event.stopPropagation();
     const alert = await this.alertController.create({
       header: 'Confirm Delete',
       message: `Are you sure you want to delete the class "${classItem.name}"?`,

@@ -44,8 +44,8 @@
       <div class="class-item">
         <ion-label>{{ classItem.name }}</ion-label>
         <div class="icon-container">
-          <ion-icon name="pencil" (click)="editClass(classItem)" class="pencil"></ion-icon>
-          <ion-icon name="trash" (click)="deleteClass(classItem)" class="trash"></ion-icon>
+          <ion-icon name="pencil" (click)="editClass($event, classItem)" class="pencil"></ion-icon>
+          <ion-icon name="trash" (click)="deleteClass($event, classItem)" class="trash"></ion-icon>
         </div>
       </div>
     </ion-card>
