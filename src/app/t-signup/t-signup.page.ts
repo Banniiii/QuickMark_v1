@@ -31,7 +31,7 @@ export class TSignupPage implements OnInit {
       const reader = new FileReader();
       reader.onload = () => {
         this.userPhoto = reader.result as string;
-        console.log(this.userPhoto);
+        console.log('Selected Photo:', file.name);
       };
       reader.readAsDataURL(file);
     }
@@ -83,14 +83,14 @@ export class TSignupPage implements OnInit {
         if (this.userPhoto) {
           const fileName = `profiles/${Date.now()}-${this.idNumber}.jpg`;
           const { data: uploadData, error: uploadError } = await this.supabaseService.client.storage
-            .from('profile-photos')
+            .from('profile_photos')
             .upload(fileName, this.dataURItoBlob(this.userPhoto), { upsert: true });
     
           if (uploadError) {
             console.error('Photo Upload Error:', uploadError.message);
           } else {
             const { data: publicData } = this.supabaseService.client.storage
-              .from('profile-photos')
+              .from('profile_photos')
               .getPublicUrl(fileName);
             photoUrl = publicData.publicUrl;
           }
