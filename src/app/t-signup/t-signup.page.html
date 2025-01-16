@@ -1,0 +1,75 @@
+<ion-content [fullscreen]="true" class="teacher-page">
+  <ion-header>
+    <ion-button fill="clear" routerLink="/landing-page" class="back-button">
+      <ion-icon slot="icon-only" name="arrow-back" class="back-btn"></ion-icon>
+    </ion-button>
+  </ion-header>
+  
+  <div class="teacher-header-logo">
+    <img src="assets/teacher-logo.png" alt="teacher-logo" class="logo">
+  </div>
+  <div class="register-here">
+    <h1>
+      <span class="register-txt">Register </span>
+      <span class="here-txt">here</span>
+    </h1>
+    <p>
+      Create an account
+    </p>
+  </div>
+
+  <div class="upload-photo">
+    <ion-avatar>
+      <img [src]="userPhoto || 'assets/yvan.jpg'" alt="User Photo" class="user-photo">
+    </ion-avatar>
+  </div>
+
+  <div class="input-fields">
+    <ion-input
+    aria-label="First Name"
+    placeholder="First Name"
+    class="first-name">
+    </ion-input>
+
+    <ion-input
+    aria-label="Last Name"
+    placeholder="Last Name"
+    class="last-name">
+    </ion-input>
+
+    <ion-input
+    aria-label="ID Number"
+    placeholder="ID Number"
+    type="number"
+    class="teacher-id-number">
+    </ion-input>
+
+    <ion-input
+    aria-label="Password"
+    placeholder="Password"
+    type="password"
+    class="password"
+    [(ngModel)]="password"
+    (ionInput)="onPasswordInput()">
+    </ion-input>
+
+    <ion-input
+    *ngIf="showConfirmPassword"
+    aria-label="Confirm Password"
+    placeholder="Confirm Password"
+    type="password"
+    class="confirm-password">
+    </ion-input>
+  </div>
+
+  <div class="register">
+    <ion-button class="register-button">
+      <ion-icon name="person-add-outline" slot="start" class="register-icon"></ion-icon>
+      Register
+    </ion-button>
+  </div>
+
+  <p class="signin-txt">
+    Already have an account? <a href="/t-signin" class="signin-link">Sign In here</a>
+  </p>
+</ion-content>
