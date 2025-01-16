@@ -43,6 +43,10 @@ const routes: Routes = [
     path: 't-attendance',
     loadChildren: () => import('./t-attendance/t-attendance.module').then( m => m.TAttendancePageModule)
   },
+  {
+    path: 't-profile',
+    loadChildren: () => import('./t-profile/t-profile.module').then( m => m.TProfilePageModule)
+  },
 ];
 
 @NgModule({

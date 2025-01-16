@@ -1,0 +1,54 @@
+<ion-content [fullscreen]="true" class="teacher-page">
+  <ion-header>
+    <div class="header">
+      <img src="assets/logo.png" alt="QuickMark Logo" class="logo">
+      <h1 class="title">
+        <span class="quick">Quick</span>
+        <span class="mark">Mark</span>
+      </h1>
+      <ion-avatar>
+        <img src="assets/yvan.jpg" alt="User Photo" class="userPhoto">
+      </ion-avatar>
+    </div>
+  </ion-header>
+
+  <ion-button fill="clear" routerLink="/t-home" class="back-button">
+    <ion-icon slot="icon-only" name="arrow-back" class="back-btn"></ion-icon>
+  </ion-button>
+
+  <div class="hello-msg">
+    <img src="assets/hand.png" alt="Handwave" class="hand-wave">
+    <h2>
+      <span class="hello">Hello, </span>
+      <span class="yvan">Yvan!</span>
+    </h2>
+    <p class="display-teacher-id">Teacher ID: 21-20436</p>
+  </div>
+
+  <div class="teacher-id-card">
+    <div class="card-header">
+      <ion-avatar class="teacher-photo">
+        <img src="assets/yvan.jpg" alt="Teacher Photo">
+      </ion-avatar>
+    </div>
+
+    <div class="card-body">
+      <h2 class="teacher-name">Yvan Maribbay</h2>
+      <p class="teacher-id">Teacher ID: 21-20436</p>
+    </div>
+  </div>
+
+  <div class="edit-button">
+    <ion-button expand="block" class="edit-btn">
+      <ion-icon name="create-outline" slot="start"></ion-icon>
+      Edit Profile
+    </ion-button>
+  </div>
+  
+  <div class="logout-button">
+    <ion-button expand="block" class="logout-btn" routerLink="/t-signin">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Log Out
+    </ion-button>
+  </div>
+</ion-content>
