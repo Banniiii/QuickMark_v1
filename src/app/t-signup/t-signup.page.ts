@@ -9,8 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class TSignupPage implements OnInit {
   password: string = '';
   showConfirmPassword: boolean = false;
-  userPhoto: string | ArrayBuffer | null = null;
+  userPhoto: string | undefined;
+
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      console.log(file);  
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.userPhoto = reader.result as string;  
+        console.log(this.userPhoto);  
+      };
+      reader.readAsDataURL(file);
+    }
+  }
   
+
   constructor() { }
 
   ngOnInit() {

@@ -19,11 +19,23 @@
   </div>
 
   <div class="upload-photo">
-    <ion-avatar>
-      <img [src]="userPhoto || 'assets/yvan.jpg'" alt="User Photo" class="user-photo">
+    <ion-avatar (click)="fileInput.click()">
+      <img [src]="userPhoto || 'assets/temp-profile.jpg'" alt="User Photo" class="user-photo">
+      
+      <ion-icon 
+        name="camera-outline" 
+        class="upload-icon">
+      </ion-icon>
     </ion-avatar>
+  
+    <input 
+      type="file" 
+      #fileInput 
+      accept="image/*" 
+      style="display: none;" 
+      (change)="onFileSelected($event)">
   </div>
-
+  
   <div class="input-fields">
     <ion-input
     aria-label="First Name"
