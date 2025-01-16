@@ -33,7 +33,10 @@
       #fileInput 
       accept="image/*" 
       style="display: none;" 
-      (change)="onFileSelected($event)">
+      (change)="onFileSelected($event)"
+      aria-label="Profile Picture"
+      placeholder="Choose Photo"
+      name="profile-photo">
   </div>
   
   <div class="input-fields">
