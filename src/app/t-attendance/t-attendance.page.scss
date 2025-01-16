@@ -1,0 +1,142 @@
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333333;
+    --color-1: #d8884a;
+    --color-2: #2885a5;
+    --color-3: #ffd5b8;
+    --color-4: #864d22;
+}
+
+.dark-mode {
+    --background-color: #292f33;
+}
+
+.teacher-page {
+    --background: #f9f9f9;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--background-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 35px;
+    height: auto;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+
+    .quick {
+        color: #2885a5;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .mark {
+        color: #d8884a;
+        font-weight: bold;
+        font-size: 25px;
+    }
+}
+
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.class-header {
+    display: flex;
+    align-items: center;  
+    justify-content: space-between; 
+    padding: 10px;  
+  }
+
+.back-button {
+    --background: #ffd5b8;
+    --background-activated: #864d22;
+    --border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: 10px 0 10px 10px;
+}
+
+ion-icon {
+    color: #333333;
+    font-size: 24px;
+}
+
+.subject-details {
+    text-align: center;
+    background-color: #ffd5b8;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    width: 60%;
+
+    h2 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333333;
+    }
+}
+
+.search-bar {
+    padding: 0px;
+    margin-top: 0px;
+
+    ion-searchbar {
+        --background: #f9f9f9;
+        --color: #333;
+        --padding-start: 10px;
+        --border-radius: 8px;
+        --box-shadow: 0 0 0 1px black;
+        --width: auto;
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+.t-head {
+    background-color: #d8884a;
+    border: solid 1px #333333;
+    font-weight: bold;
+    color: #333333;
+}
+ion-col {
+    text-align: center;
+    border: solid 1px #333333;
+}
+
+.download-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;  
+    left: 50%;
+    transform: translateX(-50%);  
+    width: 100%;
+  
+  .download {
+    --background: #d8884a;
+    --color: #fff;
+    color: #fff;
+    --background-activated: #864d22;
+    --border-radius: 8px;
+    font-weight: bold;
+  }
+}

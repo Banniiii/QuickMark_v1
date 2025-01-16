@@ -1,0 +1,58 @@
+<ion-content [fullscreen]="true" class="teacher-page">
+  <ion-header>
+    <div class="header">
+      <img src="assets/logo.png" alt="QuickMark Logo" class="logo">
+      <h1 class="title">
+        <span class="quick">Quick</span>
+        <span class="mark">Mark</span>
+      </h1>
+      <ion-avatar>
+        <img src="assets/yvan.jpg" alt="User Photo" class="userPhoto">
+      </ion-avatar>
+    </div>
+  </ion-header>
+
+  <div class="class-header">
+    <ion-button fill="clear" routerLink="/t-class" class="back-button">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+  
+    <div class="subject-details">
+      <h2>December 10, 2024</h2>
+      <p>Mobile Computing 3</p>
+    </div>
+  </div>
+
+  <div class="search-bar">
+    <ion-searchbar
+      placeholder="Search">
+    </ion-searchbar>
+  </div>
+
+  <div class="attendance-list">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" size-md="4" size-lg="2" class="t-head">Student Id</ion-col>
+        <ion-col size="4" size-md="4" size-lg="2" class="t-head">Name</ion-col>
+        <ion-col size="4" size-md="4" size-lg="2" class="t-head">Timestamp</ion-col>
+        <ion-col size="4" size-md="4" size-lg="2">21-20436</ion-col>
+        <ion-col size="4" size-md="4" size-lg="2">Maribbay, Yvan </ion-col>
+        <ion-col size="4" size-md="4" size-lg="2">7:30</ion-col> 
+        <ion-col size="4" size-md="4" size-lg="2">22-20470</ion-col>
+        <ion-col size="4" size-md="4" size-lg="2">Abides, Andrei </ion-col>
+        <ion-col size="4" size-md="4" size-lg="2">7:31</ion-col> 
+        <ion-col size="4" size-md="4" size-lg="2">21-72470</ion-col>
+        <ion-col size="4" size-md="4" size-lg="2">Martinez, Aira.</ion-col>
+        <ion-col size="4" size-md="4" size-lg="2">7:33</ion-col> 
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="download-button">
+    <ion-button fill="solid" class="download">
+      <ion-icon slot="start" name="download-outline" class="download"></ion-icon>
+      Download Attendance
+    </ion-button>
+  </div>
+
+</ion-content>

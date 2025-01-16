@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 't-class',
     loadChildren: () => import('./t-class/t-class.module').then( m => m.TClassPageModule)
   },
+  {
+    path: 't-attendance',
+    loadChildren: () => import('./t-attendance/t-attendance.module').then( m => m.TAttendancePageModule)
+  },
 ];
 
 @NgModule({
