@@ -9,7 +9,7 @@ import { AlertController } from '@ionic/angular';
   standalone: false,
 })
 export class TSigninPage{
-  idNumber!: number;
+  idNumber!: string;
   password!: string;
 
   constructor(private router: Router, private alertController: AlertController) { }
@@ -30,9 +30,9 @@ export class TSigninPage{
     }
   }
 
-  validateTeacher(idNumber: number, password: string): Promise<boolean> {
+  validateTeacher(idNumber: string, password: string): Promise<boolean> {
     return new Promise((resolve) => {
-      if (idNumber === 21-20436 && password === 'yvan1218.') {
+      if (idNumber === '21-20436' && password === 'yvan1218.') {
         resolve(true);
       } else {
         resolve(false);

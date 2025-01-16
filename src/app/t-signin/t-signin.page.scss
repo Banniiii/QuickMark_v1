@@ -150,4 +150,8 @@ ion-input {
 .signin-link:hover {
     text-decoration: underline;
 }
-
+  
+::ng-deep .alert-button.custom-alert-button {
+  color: #d8884a !important;               
+  border-radius: 5px;                    
+}
