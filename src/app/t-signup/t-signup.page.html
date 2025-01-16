@@ -37,41 +37,54 @@
   </div>
   
   <div class="input-fields">
-    <ion-label></ion-label>
     <ion-input
-    aria-label="First Name"
-    placeholder="First Name"
-    class="first-name">
+      type="text"
+      aria-label="First Name"
+      placeholder="First Name"
+      [(ngModel)]="firstName"
+      name="firstName">
     </ion-input>
 
     <ion-input
-    aria-label="Last Name"
-    placeholder="Last Name"
-    class="last-name">
+      type="text"
+      aria-label="Last Name"
+      placeholder="Last Name"
+      [(ngModel)]="lastName"
+      name="lastName">
     </ion-input>
 
     <ion-input
-    aria-label="ID Number"
-    placeholder="ID Number"
-    type="number"
-    class="teacher-id-number">
+      type="email"
+      aria-label="Email"
+      placeholder="Email"
+      [(ngModel)]="email"
+      name="email">
     </ion-input>
 
     <ion-input
-    aria-label="Password"
-    placeholder="Password"
-    type="password"
-    class="password"
-    [(ngModel)]="password"
-    (ionInput)="onPasswordInput()">
+      type="text"
+      aria-label="ID Number"
+      placeholder="ID Number"
+      [(ngModel)]="idNumber"
+      name="idNumber">
     </ion-input>
 
     <ion-input
-    *ngIf="showConfirmPassword"
-    aria-label="Confirm Password"
-    placeholder="Confirm Password"
-    type="password"
-    class="confirm-password">
+      type="password"
+      aria-label="Password"
+      placeholder="Password"
+      [(ngModel)]="password"
+      name="password"
+      (ionInput)="onPasswordInput()">
+    </ion-input>
+
+    <ion-input
+      *ngIf="showConfirmPassword"
+      aria-label="Confirm Password"
+      placeholder="Confirm Password"
+      type="password"
+      [(ngModel)]="confirmPassword"
+      name="confirmPassword">
     </ion-input>
   </div>
 

@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { createClient } from '@supabase/supabase-js';
+import { SupabaseService } from '../services/supabase.service';
 
 @Component({
   selector: 'app-t-signup',
   templateUrl: './t-signup.page.html',
   styleUrls: ['./t-signup.page.scss'],
-  standalone: false
+  standalone: false,
 })
 export class TSignupPage implements OnInit {
-  supabase = createClient('https://ygiecdduxzhavszahfpj.supabase.co',
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnaWVjZGR1eHpoYXZzemFoZnBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY5ODM1MjcsImV4cCI6MjA1MjU1OTUyN30.1i9wkAZu8nJ41gxch9E7pSwY9C5E5KpCjju3Gm-P7Ac'); 
-
   password: string = '';
   confirmPassword: string = '';
   showConfirmPassword: boolean = false;
@@ -20,7 +17,7 @@ export class TSignupPage implements OnInit {
   idNumber: string = '';
   email: string = ''; 
 
-  constructor() {}
+  constructor(private supabaseService: SupabaseService) {}
 
   ngOnInit() {}
 
@@ -38,71 +35,90 @@ export class TSignupPage implements OnInit {
       };
       reader.readAsDataURL(file);
     }
-  }
-
-  async registerUser() {
-    if (!this.firstName || !this.lastName || !this.email || !this.password || !this.idNumber) {
-      alert('All fields are required!');
-      return;
     }
 
-    if (this.password !== this.confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
-
-    try {
-      // Step 1: Register the user with Supabase authentication
-      const { data: authData, error: authError } = await this.supabase.auth.signUp({
-        email: this.email,
-        password: this.password,
-      });
-
-      if (authError) {
-        console.error('Authentication Error:', authError.message);
-        alert('Registration failed. Please try again.');
+    async registerUser() {
+      console.log('First Name:', this.firstName);
+      console.log('Last Name:', this.lastName);
+      console.log('Email:', this.email);
+      console.log('ID Number:', this.idNumber);  // Log ID number to check the value
+      console.log('Password:', this.password);
+      console.log('Confirm Password:', this.confirmPassword);
+    
+      // Trim and validate inputs
+      const trimmedFirstName = this.firstName?.trim() || '';
+      const trimmedLastName = this.lastName?.trim() || '';
+      const trimmedEmail = this.email?.trim() || '';
+      const trimmedIdNumber = this.idNumber?.trim() || '';  // Ensure idNumber is treated as string
+      const trimmedPassword = this.password?.trim() || '';
+      const trimmedConfirmPassword = this.confirmPassword?.trim() || '';
+    
+      if (!trimmedFirstName || !trimmedLastName || !trimmedEmail || !trimmedIdNumber || !trimmedPassword) {
+        console.error('Some fields are empty:');
+        alert('All fields are required!');
         return;
       }
-
-      // Step 2: Upload the profile photo (optional)
-      let photoUrl = '';
-      if (this.userPhoto) {
-        const fileName = `profiles/${Date.now()}-${this.idNumber}.jpg`;
-        const { data: uploadData, error: uploadError } = await this.supabase.storage
-          .from('profile-photos')
-          .upload(fileName, this.dataURItoBlob(this.userPhoto), { upsert: true });
-
-        if (uploadError) {
-          console.error('Photo Upload Error:', uploadError.message);
-        } else {
-          const { data: publicData } = this.supabase.storage.from('profile-photos').getPublicUrl(fileName);
-          photoUrl = publicData.publicUrl;
-        }
+    
+      if (trimmedPassword !== trimmedConfirmPassword) {
+        console.error('Passwords do not match!');
+        alert('Passwords do not match!');
+        return;
       }
-
-      // Step 3: Store additional user details in the database
-      const { error: dbError } = await this.supabase.from('users').insert([
-        {
-          id: authData.user?.id, // Link to the Supabase auth user
+    
+      try {
+        // Step 1: Register user with Supabase authentication
+        const { data: authData, error: authError } = await this.supabaseService.client.auth.signUp({
+          email: this.email,
+          password: this.password,
+        });
+    
+        if (authError) {
+          console.error('Authentication Error:', authError.message);
+          alert('Registration failed. Please try again.');
+          return;
+        }
+    
+        // Step 2: Upload profile photo (if selected)
+        let photoUrl = '';
+        if (this.userPhoto) {
+          const fileName = `profiles/${Date.now()}-${this.idNumber}.jpg`;
+          const { data: uploadData, error: uploadError } = await this.supabaseService.client.storage
+            .from('profile-photos')
+            .upload(fileName, this.dataURItoBlob(this.userPhoto), { upsert: true });
+    
+          if (uploadError) {
+            console.error('Photo Upload Error:', uploadError.message);
+          } else {
+            const { data: publicData } = this.supabaseService.client.storage
+              .from('profile-photos')
+              .getPublicUrl(fileName);
+            photoUrl = publicData.publicUrl;
+          }
+        }
+    
+        // Step 3: Insert teacher data into the database
+        const { data: dbData, error: dbError } = await this.supabaseService.client.from('teachers').insert([{
+          id: authData.user?.id, 
           first_name: this.firstName,
           last_name: this.lastName,
-          id_number: this.idNumber,
+          id_number: this.idNumber,  // Ensure id_number is passed correctly
           photo_url: photoUrl,
-        },
-      ]);
-
-      if (dbError) {
-        console.error('Database Error:', dbError.message);
-        alert('Failed to save user details. Please try again.');
-        return;
+          email: this.email,  // Ensure email is passed
+        }]);
+    
+        if (dbError) {
+          console.error('Database Error:', dbError.message);
+          alert('Failed to save user details. Please try again.');
+          return;
+        }
+    
+        console.log('Data inserted into database:', dbData);
+        alert('Registration successful!');
+      } catch (error) {
+        console.error('Unexpected Error:', error);
+        alert('An unexpected error occurred. Please try again.');
       }
-
-      alert('Registration successful!');
-    } catch (error) {
-      console.error('Unexpected Error:', error);
-      alert('An unexpected error occurred. Please try again.');
-    }
-  }
+    }    
 
   // Helper function to convert Base64 to Blob
   private dataURItoBlob(dataURI: string): Blob {
