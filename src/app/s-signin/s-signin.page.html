@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true" class="student-page">
+  <ion-header>
+    <ion-button fill="clear" routerLink="/landing-page" class="back-button">
+      <ion-icon slot="icon-only" name="arrow-back" class="back-btn"></ion-icon>
+    </ion-button>
+  </ion-header>
+
+  <div class="student-header-logo">
+    <img src="assets/student-logo.png" alt="student-logo" class="logo">
+  </div>
+  <div class="register-here">
+    <h1>
+      <span class="register-txt">Login </span>
+      <span class="here-txt">here</span>
+    </h1>
+    <p>Welcome back, you've been missed!</p>
+  </div>
+
+  <div class="input-fields">
+    <ion-input
+      aria-label="ID Number"
+      placeholder="ID Number"
+      type="text"
+      [(ngModel)]="idNumber"
+      class="student-id-number">
+    </ion-input>
+
+    <ion-input
+      aria-label="Password"
+      placeholder="Password"
+      type="password"
+      [(ngModel)]="password"
+      class="password">
+    </ion-input>
+  </div>
+
+  <div class="login">
+    <ion-button (click)="onLogin()" class="login-button">
+      <ion-icon name="log-in-outline" slot="start" class="login-icon"></ion-icon>
+      Login
+    </ion-button>
+  </div>
+
+  <p class="signin-txt">
+    Don't have an account? <a href="/s-signup" class="signin-link">Register here</a>
+  </p>
+</ion-content>

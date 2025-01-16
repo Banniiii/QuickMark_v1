@@ -47,6 +47,14 @@ const routes: Routes = [
     path: 't-profile',
     loadChildren: () => import('./t-profile/t-profile.module').then( m => m.TProfilePageModule)
   },
+  {
+    path: 's-signin',
+    loadChildren: () => import('./s-signin/s-signin.module').then( m => m.SSigninPageModule)
+  },
+  {
+    path: 's-profile',
+    loadChildren: () => import('./s-profile/s-profile.module').then( m => m.SProfilePageModule)
+  },
 ];
 
 @NgModule({

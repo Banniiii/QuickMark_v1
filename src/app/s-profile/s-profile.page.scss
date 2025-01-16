@@ -1,0 +1,162 @@
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333333;
+    --color-1: #d8884a;
+    --color-2: #2885a5;
+    --color-3: #ffd5b8;
+    --color-4: #864d22;
+}
+
+.dark-mode {
+    --background-color: #292f33;
+}
+
+.student-page {
+  --background: #f9f9f9;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--background-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 35px;
+    height: auto;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+
+    .quick {
+        color: #2885a5;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .mark {
+        color: #d8884a;
+        font-weight: bold;
+        font-size: 25px;
+    }
+}
+
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.hello-msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+  
+    .hand-wave {
+      width: 10%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  
+    .hello {
+      color: #2885a5;
+      font-weight: bold;
+      font-size: 24px;
+    }
+  
+    .yvan {
+      color: #d8884a;
+      font-weight: bold;
+      font-size: 24px;
+    }
+  
+    .display-student-id {
+      font-size: 16px;
+      color: #666666;
+      margin-top: 5px;
+    }
+}
+  
+.student-id-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  border: 2px solid #2885a5;
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.student-photo {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #d8884a;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card-body {
+  margin-bottom: 15px;
+}
+
+.student-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333333;
+  margin: 5px 0;
+}
+
+.student-id {
+  font-size: 14px;
+  color: #666666;
+  margin: 2px 0;
+}
+
+.edit-button {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  .edit-btn {
+    --background: #2885a5;
+    --background-activated: #195b6c;
+    --border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+.logout-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  .logout-btn {
+    --background: #d8884a;
+    --background-activated: #864d22;
+    --border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    width: 90%;
+    max-width: 350px;
+  }
+}

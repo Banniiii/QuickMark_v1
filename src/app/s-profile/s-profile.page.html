@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="true" class="student-page">
+  <ion-header>
+    <div class="header">
+      <img src="assets/logo.png" alt="QuickMark Logo" class="logo">
+      <h1 class="title">
+        <span class="quick">Quick</span>
+        <span class="mark">Mark</span>
+      </h1>
+      <ion-avatar>
+        <img src="assets/yvan.jpg" alt="User Photo" class="userPhoto">
+      </ion-avatar>
+    </div>
+  </ion-header>
+
+  <div class="hello-msg">
+    <img src="assets/hand.png" alt="Handwave" class="hand-wave">
+    <h2>
+      <span class="hello">Hello, </span>
+      <span class="yvan">Yvan!</span>
+    </h2>
+    <p class="display-student-id">Student ID: 21-20436</p>
+  </div>
+
+  <div class="student-id-card">
+    <div class="card-header">
+      <ion-avatar class="student-photo">
+        <img src="assets/yvan.jpg" alt="Student Photo">
+      </ion-avatar>
+    </div>
+
+    <div class="card-body">
+      <h2 class="student-name">Yvan Maribbay</h2>
+      <p class="student-id">Student ID: 21-20436</p>
+    </div>
+  </div>
+
+  <div class="edit-button">
+    <ion-button expand="block" class="edit-btn">
+      <ion-icon name="qr-code-outline" slot="start" class="attendance-icon"></ion-icon>
+      Take Attendance
+    </ion-button>
+  </div>
+  
+  <div class="logout-button">
+    <ion-button expand="block" class="logout-btn" routerLink="/s-signin">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Log Out
+    </ion-button>
+  </div>
+</ion-content>
