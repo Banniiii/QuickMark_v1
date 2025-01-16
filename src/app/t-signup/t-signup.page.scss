@@ -169,3 +169,7 @@ ion-input {
     text-decoration: underline;
 }
 
+::ng-deep .custom-alert-button {
+    color: #d8884a !important;               
+    border-radius: 5px;                    
+  }

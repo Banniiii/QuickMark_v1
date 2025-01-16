@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SupabaseService } from '../services/supabase.service';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-s-signup',
@@ -17,9 +19,22 @@ export class SSignupPage implements OnInit {
   idNumber: string = '';
   email: string = ''; 
 
-  constructor(private supabaseService: SupabaseService) {}
+  constructor(private supabaseService: SupabaseService, private router: Router, private alertController: AlertController) {}
 
   ngOnInit() {}
+
+  async showAlert(header: string, message: string) {
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons: [{
+        text: 'OK',
+        cssClass: 'custom-alert-button',
+      }],
+    });
+
+    await alert.present();
+  }
 
   onPasswordInput() {
     this.showConfirmPassword = this.password.length > 0;
@@ -41,7 +56,7 @@ export class SSignupPage implements OnInit {
       console.log('First Name:', this.firstName);
       console.log('Last Name:', this.lastName);
       console.log('Email:', this.email);
-      console.log('ID Number:', this.idNumber);  
+      console.log('ID Number:', this.idNumber);  // Log ID number to check the value
       console.log('Password:', this.password);
       console.log('Confirm Password:', this.confirmPassword);
     
@@ -49,19 +64,17 @@ export class SSignupPage implements OnInit {
       const trimmedFirstName = this.firstName?.trim() || '';
       const trimmedLastName = this.lastName?.trim() || '';
       const trimmedEmail = this.email?.trim() || '';
-      const trimmedIdNumber = this.idNumber?.trim() || '';  
+      const trimmedIdNumber = this.idNumber?.trim() || '';  // Ensure idNumber is treated as string
       const trimmedPassword = this.password?.trim() || '';
       const trimmedConfirmPassword = this.confirmPassword?.trim() || '';
     
       if (!trimmedFirstName || !trimmedLastName || !trimmedEmail || !trimmedIdNumber || !trimmedPassword) {
-        console.error('Some fields are empty:');
-        alert('All fields are required!');
+        await this.showAlert('Error', 'All fields are required!');
         return;
       }
     
       if (trimmedPassword !== trimmedConfirmPassword) {
-        console.error('Passwords do not match!');
-        alert('Passwords do not match!');
+        await this.showAlert('Error', 'Passwords do not match!');
         return;
       }
     
@@ -74,7 +87,7 @@ export class SSignupPage implements OnInit {
     
         if (authError) {
           console.error('Authentication Error:', authError.message);
-          alert('Registration failed. Please try again.');
+          await this.showAlert('Error', 'Registration failed. Please try again.');
           return;
         }
     
@@ -83,14 +96,14 @@ export class SSignupPage implements OnInit {
         if (this.userPhoto) {
           const fileName = `profiles/${Date.now()}-${this.idNumber}.jpg`;
           const { data: uploadData, error: uploadError } = await this.supabaseService.client.storage
-            .from('profile_photos')
+            .from('profile-photos')
             .upload(fileName, this.dataURItoBlob(this.userPhoto), { upsert: true });
     
           if (uploadError) {
             console.error('Photo Upload Error:', uploadError.message);
           } else {
             const { data: publicData } = this.supabaseService.client.storage
-              .from('profile_photos')
+              .from('profile-photos')
               .getPublicUrl(fileName);
             photoUrl = publicData.publicUrl;
           }
@@ -108,15 +121,16 @@ export class SSignupPage implements OnInit {
     
         if (dbError) {
           console.error('Database Error:', dbError.message);
-          alert('Failed to save user details. Please try again.');
+          await this.showAlert('Error', 'Failed to save user details. Please try again.');
           return;
         }
     
         console.log('Data inserted into database:', dbData);
-        alert('Registration successful!');
+        await this.showAlert('Success', 'Registration successful!');
+        this.router.navigate(['/s-signin']);
       } catch (error) {
         console.error('Unexpected Error:', error);
-        alert('An unexpected error occurred. Please try again.');
+        await this.showAlert('Error', 'An unexpected error occurred. Please try again.');
       }
     }    
 
