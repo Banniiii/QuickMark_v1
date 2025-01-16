@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 't-home',
     loadChildren: () => import('./t-home/t-home.module').then( m => m.THomePageModule)
   },
+  {
+    path: 't-class',
+    loadChildren: () => import('./t-class/t-class.module').then( m => m.TClassPageModule)
+  },
 ];
 
 @NgModule({

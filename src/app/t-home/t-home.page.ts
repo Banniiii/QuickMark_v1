@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-t-home',
@@ -14,7 +15,7 @@ export class THomePage {
   filteredClasses: { name: string }[] = [];
   searchQuery = '';
 
-  constructor(private alertController: AlertController) {}
+  constructor(private alertController: AlertController, private router: Router) {}
 
   toggleDropdown() {
     this.showInput = !this.showInput;
@@ -116,4 +117,9 @@ export class THomePage {
   ngOnInit() {
     this.loadClasses();
   }
+
+  goToClass(className: string) {
+    this.router.navigate(['/t-class'], { queryParams: { name: className } });
+  }
+
 }

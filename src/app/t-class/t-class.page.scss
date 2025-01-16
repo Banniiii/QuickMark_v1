@@ -1,0 +1,188 @@
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333333;
+    --color-1: #d8884a;
+    --color-2: #2885a5;
+    --color-3: #ffd5b8;
+    --color-4: #864d22;
+}
+
+.dark-mode {
+    --background-color: #292f33;
+}
+
+.teacher-page {
+    --background: #f9f9f9;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--background-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 35px;
+    height: auto;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+
+    .quick {
+        color: #2885a5;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .mark {
+        color: #d8884a;
+        font-weight: bold;
+        font-size: 25px;
+    }
+}
+
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.class-header {
+    display: flex;
+    align-items: center;  
+    justify-content: space-between; 
+    padding: 10px;  
+  }
+
+.back-button {
+    --background: #ffd5b8;
+    --background-activated: #864d22;
+    --border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: 10px 0 10px 10px;
+}
+
+.back-btn {
+    color: #333333;
+    font-size: 24px;
+}
+
+.class-details {
+    text-align: center;
+    background-color: #ffd5b8;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    width: 40%;
+
+    h2 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 10px;
+    }
+}
+
+.class-calendar {
+    padding: 0px;
+
+  .calendar-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .month-nav-button {
+    --background: transparent;
+    --border-radius: 50%;
+    --color: #d8884a;
+    font-size: 24px;
+    padding: 10px;
+  }
+  
+  .current-month {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.subject-container {
+    padding: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 70%;
+
+    h5 {
+        color: #333333;
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+
+    p {
+        color: #333333;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    .view-delete-btn {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .view {
+        --background: #28a56b;
+        --background-activated: #1e7c51;
+        --border-radius: 8px;
+        font-weight: bold;
+        padding: 0 10px;
+    }
+
+    .delete {
+        --background: #a53f28;
+        --background-activated: #7c2e1e;
+        --border-radius: 8px;
+        font-weight: bold;
+        padding: 0 10px;
+    }
+}
+
+.attendance {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;  
+    left: 50%;
+    transform: translateX(-50%);  
+    width: 100%;
+}
+
+.attendance-btn {
+    --background: #d8884a;
+    --background-activated: #864d22;
+    --border-radius: 8px;
+    font-weight: bold;
+}

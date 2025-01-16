@@ -1,0 +1,69 @@
+<ion-content [fullscreen]="true" class="teacher-page">
+  <ion-header>
+    <div class="header">
+      <img src="assets/logo.png" alt="QuickMark Logo" class="logo">
+      <h1 class="title">
+        <span class="quick">Quick</span>
+        <span class="mark">Mark</span>
+      </h1>
+      <ion-avatar>
+        <img src="assets/yvan.jpg" alt="User Photo" class="userPhoto">
+      </ion-avatar>
+    </div>
+  </ion-header>
+
+  <div class="class-header">
+    <ion-button fill="clear" routerLink="/t-home" class="back-button">
+      <ion-icon slot="icon-only" name="arrow-back" class="back-btn"></ion-icon>
+    </ion-button>
+  
+    <div class="class-details">
+      <h2>{{ className }}</h2>
+      
+    </div>
+  </div>
+
+  <div class="class-calendar">
+    <div class="calendar-header">
+    </div>
+  
+    <div class="calendar-navigation">
+      <ion-button fill="clear" (click)="changeMonth('left')" class="month-nav-button">
+        <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+      </ion-button>
+  
+      <div class="current-month">
+        <h4>{{ currentMonth }}</h4>
+      </div>
+  
+      <ion-button fill="clear" (click)="changeMonth('right')" class="month-nav-button">
+        <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="subject-container">
+    <h5>December 10, 2024</h5>
+    <p>Mobile Computing 3</p>
+    <div class="view-delete-btn">
+      <ion-button class="view" routerLink="/t-attendance">View</ion-button>
+      <ion-button class="delete">Delete</ion-button>
+    </div>
+  </div>  
+
+  <div class="subject-container">
+    <h5>December 12, 2024</h5>
+    <p>Mobile Computing 3</p>
+    <div class="view-delete-btn">
+      <ion-button class="view" routerLink="/t-attendance">View</ion-button>
+      <ion-button class="delete">Delete</ion-button>
+    </div>
+  </div>
+
+  <div class="attendance">
+    <ion-button class="attendance-btn">
+      <ion-icon name="qr-code-outline" slot="start" class="attendance-icon"></ion-icon>
+      Take Attendance
+    </ion-button>
+  </div>
+</ion-content>
