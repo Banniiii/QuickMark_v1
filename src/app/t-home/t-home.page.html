@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="true" class="teacher-page">
+  <ion-header>
+    <div class="header">
+      <img src="assets/logo.png" alt="QuickMark Logo" class="logo">
+      <h1 class="title">
+        <span class="quick">Quick</span>
+        <span class="mark">Mark</span>
+      </h1>
+      <ion-avatar>
+        <img src="assets/yvan.jpg" alt="User Photo" class="userPhoto" routerLink="/t-profile">
+      </ion-avatar>
+    </div>
+  </ion-header>
+
+  <div class="add-class">
+    <ion-item (click)="toggleDropdown()" class="dropdown">
+      <ion-label>Create New Class</ion-label>
+      <ion-icon [name]="showInput ? 'chevron-up' : 'chevron-down'"></ion-icon>
+    </ion-item>
+
+    <div *ngIf="showInput" class="input-container">
+      <ion-input
+        aria-label="Class Name"
+        placeholder="Enter Class Name"
+        [(ngModel)]="className"
+        class="class-name">
+      </ion-input>
+      <ion-button (click)="addClass()" expand="block" class="add-button">
+        Add Class
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="search-bar">
+    <ion-searchbar
+      [(ngModel)]="searchQuery"
+      (ionInput)="onSearch()"
+      placeholder="Search classes">
+    </ion-searchbar>
+  </div>
+
+  <div class="classes-container">
+    <ion-card *ngFor="let classItem of filteredClasses" (click)="goToClass(classItem.name)">
+      <div class="class-item">
+        <ion-label>{{ classItem.name }}</ion-label>
+        <ion-icon name="ellipsis-vertical" (click)="showOptions(classItem)"></ion-icon>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

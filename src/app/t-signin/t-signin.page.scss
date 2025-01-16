@@ -1,0 +1,153 @@
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333333;
+    --color-1: #d8884a;
+    --color-2: #2885a5;
+    --color-3: #ffd5b8;
+    --color-4: #864d22;
+}
+
+.teacher-page {
+    --background: #f9f9f9;
+}
+
+.back-button {
+    --background: #ffd5b8;
+    --background-activated: #864d22;
+    --border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: 10px 0 10px 10px;
+}
+
+.back-btn {
+    color: #333333;
+    font-size: 24px;
+}
+
+.teacher-header-logo {
+    padding-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 100%;
+    width: 160px;
+    height: auto;
+}
+
+h1 {
+    margin-top: 0px;
+}
+
+.register-here {
+    text-align: center;
+    
+
+    .register-txt {
+        color: #2885a5;
+        font-weight: bold;
+        font-size: 35px;
+    }
+
+    .here-txt {
+        color: #d8884a;
+        font-weight: bold;
+        font-size: 35px;
+    }
+
+    p {
+        font-weight: bold;
+        color: #333333;
+        margin-top: 0;
+    }
+}
+
+.upload-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    ion-avatar {
+        width: 85px;
+        height: 85px;
+    }
+
+    .user-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+ion-input {
+    --background: #ffd5b8;
+    --color: #333333;
+    --placeholder-color: #333333;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    --border-radius: 8px;
+    font-weight: bold;
+    max-width: 300px;
+    width: 100%;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-button {
+    --background: #d8884a;
+    --background-activated: #864d22;
+    --border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #f9f9f9;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    max-width: 120px;
+    width: 100%;
+}
+
+.login-icon {
+    font-size: 25px;
+    margin-right: 8px;
+}
+
+.signin-txt {
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+}
+
+.signin-link {
+    color: #2885a5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signin-link:hover {
+    text-decoration: underline;
+}
+
