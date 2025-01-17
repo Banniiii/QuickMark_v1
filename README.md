@@ -5,8 +5,6 @@ QR coded attendance Checker
 ## Table of Contents
 - [Installation](#installation)
 - [Running the Project](#running-the-project)
-- [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
