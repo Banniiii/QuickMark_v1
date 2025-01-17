@@ -1,4 +1,4 @@
-QuickMark Version 1
+## QuickMark Version 1
 
 QR coded attendance Checker
 
@@ -18,3 +18,26 @@ Follow these steps to download and set up the project on your local machine.
 
    ```bash
    git clone https://github.com/your-username/your-repository-name.git
+
+   Replace your-username with your GitHub username and your-repository-name with the name of your repository.
+
+2. **Navigate into the Project Folder**
+
+   ```bash
+   cd your-repository-name
+
+3. **Install Dependencies**
+
+   ```bash
+   npm install
+
+## Running the project
+
+**run the project**
+
+   ```bash
+   cd your-repository-name
+   npm start
+
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
