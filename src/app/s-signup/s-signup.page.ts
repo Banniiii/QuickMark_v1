@@ -56,7 +56,7 @@ export class SSignupPage implements OnInit {
       console.log('First Name:', this.firstName);
       console.log('Last Name:', this.lastName);
       console.log('Email:', this.email);
-      console.log('ID Number:', this.idNumber);  // Log ID number to check the value
+      console.log('ID Number:', this.idNumber);  
       console.log('Password:', this.password);
       console.log('Confirm Password:', this.confirmPassword);
     
@@ -64,7 +64,7 @@ export class SSignupPage implements OnInit {
       const trimmedFirstName = this.firstName?.trim() || '';
       const trimmedLastName = this.lastName?.trim() || '';
       const trimmedEmail = this.email?.trim() || '';
-      const trimmedIdNumber = this.idNumber?.trim() || '';  // Ensure idNumber is treated as string
+      const trimmedIdNumber = this.idNumber?.trim() || '';  
       const trimmedPassword = this.password?.trim() || '';
       const trimmedConfirmPassword = this.confirmPassword?.trim() || '';
     
@@ -114,9 +114,9 @@ export class SSignupPage implements OnInit {
           id: authData.user?.id, 
           first_name: this.firstName,
           last_name: this.lastName,
-          id_number: this.idNumber,  // Ensure id_number is passed correctly
+          id_number: this.idNumber,  
           photo_url: photoUrl,
-          email: this.email,  // Ensure email is passed
+          email: this.email,  
         }]);
     
         if (dbError) {
