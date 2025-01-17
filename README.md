@@ -18,8 +18,7 @@ Follow these steps to download and set up the project on your local machine.
 
    ```bash
    git clone https://github.com/your-username/your-repository-name.git
-
-   Replace your-username with your GitHub username and your-repository-name with the name of your repository.
+Replace your-username with your GitHub username and your-repository-name with the name of your repository.
 
 2. **Navigate into the Project Folder**
 
@@ -33,10 +32,9 @@ Follow these steps to download and set up the project on your local machine.
 
 ## Running the project
 
-**run the project**
+1. **run the project**
 
    ```bash
-   cd your-repository-name
    npm start
 
 ## License
