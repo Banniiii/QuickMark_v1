@@ -186,3 +186,13 @@
     --border-radius: 8px;
     font-weight: bold;
 }
+
+::ng-deep .custom-cancel-button{
+    color: #2885a5 !important;               
+    border-radius: 5px;                    
+}
+
+::ng-deep .custom-generate-button{
+  color: #d8884a !important;               
+  border-radius: 5px;                    
+}

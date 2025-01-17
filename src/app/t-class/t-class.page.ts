@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
     selector: 'app-t-class',
@@ -16,12 +16,12 @@ export class TClassPage implements OnInit {
   ];
   currentMonthIndex: number = new Date().getMonth();
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private alertController: AlertController) {}
 
   ngOnInit() {
     // Get the class name from the query parameter
     this.activatedRoute.queryParams.subscribe(params => {
-      this.className = params['name'] || ''; // Assign to className variable
+      this.className = params['name'] || ''; 
     });
   }
 
@@ -39,5 +39,34 @@ export class TClassPage implements OnInit {
   
   showAttendance(month: string) {
     console.log(`Showing attendance for ${month}`);
+  }
+
+  async takeAttendance() {
+    const alert = await this.alertController.create({
+      header: 'Description',
+      inputs: [
+        {
+          name: 'description',
+          type: 'text',
+          placeholder: 'Class description...',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'custom-cancel-button',
+          handler: () => {
+            console.log('Attendance canceled');
+          },
+        },
+        {
+          text: 'Generate QR',
+          cssClass: 'custom-generate-button',
+        },
+      ],
+    });
+
+    await alert.present();
   }
 }
