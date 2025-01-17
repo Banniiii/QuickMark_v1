@@ -15,13 +15,12 @@ Follow these steps to download and set up the project on your local machine.
    You can clone the repository using Git. Open your terminal and run:
 
    ```bash
-   git clone https://github.com/your-username/your-repository-name.git
-Replace your-username with your GitHub username and your-repository-name with the name of your repository.
+   git clone https://github.com/Banniiii/QuickMark_v1.git
 
 2. **Navigate into the Project Folder**
 
    ```bash
-   cd your-repository-name
+   cd quickmark_v1
 
 3. **Install Dependencies**
 
